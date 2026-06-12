@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta name="google-site-verification" content="lpJZy6WTp_xKBXky5A23WgNccAD3uZCD_tzjec6ehh8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Sites - Nicolas Felipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #080418;
+            --bg-card: #0f052e;
+            --bg-card-hover: #150840;
+            --accent: #7c3aed;
+            --accent-light: #a855f7;
+            --accent-glow: rgba(124, 58, 237, 0.4);
+            --accent-subtle: rgba(124, 58, 237, 0.08);
+            --border: rgba(124, 58, 237, 0.25);
+            --border-hover: rgba(168, 85, 247, 0.5);
+            --text-primary: #f1eeff;
+            --text-secondary: #c4b5fd;
+            --text-muted: #7c6fad;
+            --star-off: #3b2f6e;
+            --star-on: #facc15;
+            --tag-bg: rgba(124, 58, 237, 0.15);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse 80% 60% at 50% -10%, rgba(124, 58, 237, 0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(124,58,237,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(124,58,237,0.03) 1px, transparent 1px);
+            background-size: 48px 48px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 780px;
+            padding: 60px 0 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .perfil-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 340px;
+            text-align: center;
+            margin-bottom: 60px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .perfil-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #7c3aed, #a855f7, #7c3aed);
+        }
+
+        .perfil-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.28);
+        }
+
+        .perfil-card h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .foto-box {
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 58, 237, 0.15);
+            background: #0d0430;
+        }
+
+        .foto-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .contact-links { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+
+        .contact-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 7px 16px;
+            border-radius: 8px;
+            background: var(--accent-subtle);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            display: block;
+        }
+
+        .contact-links a:hover {
+            color: var(--text-primary);
+            border-color: var(--border);
+            background: rgba(124, 58, 237, 0.15);
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-primary);
+            line-height: 1.25;
+        }
+
+        .main-title span {
+            background: linear-gradient(90deg, #a855f7, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 28px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-light));
+            border-radius: 3px 0 0 3px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 50px rgba(124, 58, 237, 0.22);
+            border-color: var(--border-hover);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .project-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        .tag {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: var(--tag-bg);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            line-height: 1.75;
+            color: #b8aee8;
+            margin-bottom: 28px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            margin-bottom: 24px;
+        }
+
+        .project-date {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .project-btn {
+            padding: 10px 22px;
+            background: var(--accent);
+            color: white;
+            font-weight: 600;
+            font-size: 13px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px var(--accent-glow);
+            letter-spacing: 0.3px;
+        }
+
+        .project-btn:hover {
+            background: var(--accent-light);
+            transform: scale(1.04);
+            box-shadow: 0 6px 24px rgba(168, 85, 247, 0.5);
+        }
+
+        .bloco-avaliacao {
+            width: 100%;
+            background: rgba(124, 58, 237, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .bloco-avaliacao h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .avaliador-estrelas {
+            display: inline-flex;
+            flex-direction: row-reverse;
+            gap: 2px;
+            margin-bottom: 14px;
+        }
+
+        .avaliador-estrelas input[type="radio"] {
+            position: absolute; opacity: 0; width: 0; height: 0;
+        }
+
+        .avaliador-estrelas label {
+            font-size: 26px;
+            color: var(--star-off);
+            cursor: pointer;
+            transition: color 0.15s, text-shadow 0.15s, transform 0.15s;
+        }
+
+        .avaliador-estrelas label:hover,
+        .avaliador-estrelas label:hover ~ label {
+            color: var(--star-on);
+            text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+            transform: scale(1.15);
+        }
+
+        .avaliador-estrelas input[type="radio"]:checked ~ label {
+            color: var(--star-on);
+            text-shadow: 0 0 8px rgba(250, 204, 21, 0.5);
+        }
+
+        .feedback-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: rgba(8, 4, 24, 0.7);
+            color: var(--text-primary);
+            font-size: 13px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.25s;
+            margin-bottom: 12px;
+        }
+
+        .feedback-input::placeholder { color: var(--text-muted); }
+
+        .feedback-input:focus {
+            border-color: var(--accent-light);
+            background: rgba(15, 5, 46, 0.9);
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+
+        .btn-enviar-feedback {
+            padding: 9px 20px;
+            background: rgba(124, 58, 237, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-enviar-feedback:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+            box-shadow: 0 4px 14px var(--accent-glow);
+        }
+
+        .project-number {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: rgba(124, 58, 237, 0.07);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+      
+        .nota-dev {
+            text-align: center;
+            padding: 40px 20px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .nota-dev strong {
+            color: var(--text-secondary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+       
+        @media (max-width: 520px) {
+            .main-title { font-size: 24px; }
+            .card-footer { flex-direction: column; align-items: flex-start; }
+            .project-btn { width: 100%; text-align: center; }
+            .project-card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="perfil-card">
+        <h1>Nicolas Felipe</h1>
+        <div class="foto-box">
+            <img src="nicolas.jpg" alt="Foto de Nicolas Felipe">
+        </div>
+        <div class="contact-links">
+            <a href="https://www.instagram.com/nicolas_felipe0_/" target="_blank">@nicolas_felipe0_</a>
+            <a href="mailto:nicolasfelipe0dev@gmail.com">nicolasfelipe0dev@gmail.com</a>
+            <a href="https://wa.me/556992323989" target="_blank">💬 Chame no WhatsApp</a>
+        </div>
+    </div>
+
+    <h1 class="main-title">Os projetos de<br><span>Nicolas Felipe</span></h1>
+
+    <div class="project-card">
+        <span class="project-number">01</span>
+        <div class="project-header">
+            <h2>Resenha do Dia a Dia</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Netlify</span>
+            </div>
+        </div>
+        <p>
+            O Resenha do Dia a Dia (R.D.D) representa o marco inicial da jornada de Nicolas Felipe no desenvolvimento web. Criado originalmente utilizando apenas HTML e CSS, o projeto teve seu primeiro deploy na plataforma Netlify. Em seu lançamento, contava com três páginas essenciais: Página Inicial, Galeria de Fotos e Listagem de Membros. Com o aprimoramento técnico constante, o site evoluiu para 11 páginas integradas, consolidando-se como um portal robusto para a comunidade do R.D.D.
+        </p>
+        <div class="card-footer">
+            <a href="https://resenha-rdd.netlify.app" class="project-btn" target="_blank">Visitar site →</a>
+            <span class="project-date">Lançado em 13 de maio de 2026</span>
+        </div>
+        <form id="form-projeto1" class="bloco-avaliacao">
+            <h3>Deixe sua avaliação</h3>
+            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+            <input type="hidden" name="projeto_nome" value="Resenha do Dia a Dia">
+            <div class="avaliador-estrelas">
+                <input type="radio" name="estrelas_p1" id="s1-star5" value="5" required><label for="s1-star5">★</label>
+                <input type="radio" name="estrelas_p1" id="s1-star4" value="4"><label for="s1-star4">★</label>
+                <input type="radio" name="estrelas_p1" id="s1-star3" value="3"><label for="s1-star3">★</label>
+                <input type="radio" name="estrelas_p1" id="s1-star2" value="2"><label for="s1-star2">★</label>
+                <input type="radio" name="estrelas_p1" id="s1-star1" value="1"><label for="s1-star1">★</label>
+            </div>
+            <input type="text" id="feedback1" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
+            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <div class="project-card">
+        <span class="project-number">02</span>
+        <div class="project-header">
+            <h2>Gerador de Senhas</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Python</span>
+                <span class="tag">Render</span>
+            </div>
+        </div>
+        <p>
+            O Gerador de Senhas Aleatórias marca o segundo projeto de Nicolas Felipe, representando um avanço na criação de aplicações web interativas. Diferente do projeto inicial, esta ferramenta foi construída integrando HTML e CSS no front-end com Python no back-end, permitindo a geração de combinações seguras em tempo real. Desenvolvido como Single Page Application, o sistema reúne todas as funcionalidades em uma interface direta e intuitiva. A hospedagem foi realizada na plataforma Render, garantindo estabilidade no funcionamento do serviço.
+        </p>
+        <div class="card-footer">
+            <a href="https://gerador-de-senhas-pf3e.onrender.com/" class="project-btn" target="_blank">Visitar site →</a>
+            <span class="project-date">Lançado em 22 de maio de 2026</span>
+        </div>
+        <form id="form-projeto2" class="bloco-avaliacao">
+            <h3>Deixe sua avaliação</h3>
+            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+            <input type="hidden" name="projeto_nome" value="Gerador de Senhas">
+            <div class="avaliador-estrelas">
+                <input type="radio" name="estrelas_p2" id="s2-star5" value="5" required><label for="s2-star5">★</label>
+                <input type="radio" name="estrelas_p2" id="s2-star4" value="4"><label for="s2-star4">★</label>
+                <input type="radio" name="estrelas_p2" id="s2-star3" value="3"><label for="s2-star3">★</label>
+                <input type="radio" name="estrelas_p2" id="s2-star2" value="2"><label for="s2-star2">★</label>
+                <input type="radio" name="estrelas_p2" id="s2-star1" value="1"><label for="s2-star1">★</label>
+            </div>
+            <input type="text" id="feedback2" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
+            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <div class="project-card">
+        <span class="project-number">03</span>
+        <div class="project-header">
+            <h2>Portugol Fácil</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Interpretador</span>
+                <span class="tag">Netlify</span>
+            </div>
+        </div>
+        <p>
+            O Portugol Fácil marca o início de uma jornada focada em simplificar o aprendizado de lógica de programação para iniciantes. A plataforma integra uma interface amigável no front-end com um interpretador robusto no back-end, permitindo a execução de códigos em Portugol em tempo real. Desenvolvido como Single Page Application, o sistema reúne editor de código e console de resultados em um ambiente limpo e direto. A hospedagem na Netlify garante excelente desempenho e rapidez no carregamento.
+        </p>
+        <div class="card-footer">
+            <a href="https://portugol-facil.netlify.app/" class="project-btn" target="_blank">Visitar site →</a>
+            <span class="project-date">Lançado em 9 de junho de 2026</span>
+        </div>
+        <form id="form-projeto3" class="bloco-avaliacao">
+            <h3>Deixe sua avaliação</h3>
+            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+            <input type="hidden" name="projeto_nome" value="Portugol Fácil">
+            <div class="avaliador-estrelas">
+                <input type="radio" name="estrelas_p3" id="s3-star5" value="5" required><label for="s3-star5">★</label>
+                <input type="radio" name="estrelas_p3" id="s3-star4" value="4"><label for="s3-star4">★</label>
+                <input type="radio" name="estrelas_p3" id="s3-star3" value="3"><label for="s3-star3">★</label>
+                <input type="radio" name="estrelas_p3" id="s3-star2" value="2"><label for="s3-star2">★</label>
+                <input type="radio" name="estrelas_p3" id="s3-star1" value="1"><label for="s3-star1">★</label>
+            </div>
+            <input type="text" id="feedback3" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
+            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <div class="project-card">
+        <span class="project-number">04</span>
+        <div class="project-header">
+            <h2>Java Easy</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Java</span>
+                <span class="tag">Netlify</span>
+            </div>
+        </div>
+        <p>
+            O Java Easy é uma plataforma educacional interativa criada para tornar o aprendizado de Java acessível a qualquer pessoa, independentemente do nível de experiência. Com uma abordagem prática e direta, o site apresenta conceitos fundamentais da linguagem — como variáveis, estruturas de controle, orientação a objetos e muito mais — de forma clara e progressiva. Desenvolvido como Single Page Application com uma interface moderna e responsiva, o Java Easy foi projetado para ser o ponto de partida ideal de quem deseja dar os primeiros passos no desenvolvimento com Java. A plataforma é hospedada na Netlify, garantindo carregamento rápido e disponibilidade constante.
+        </p>
+        <div class="card-footer">
+            <a href="https://java-easy.netlify.app/" class="project-btn" target="_blank">Visitar site →</a>
+            <span class="project-date">Lançado em 11 de junho de 2026</span>
+        </div>
+        <form id="form-projeto4" class="bloco-avaliacao">
+            <h3>Deixe sua avaliação</h3>
+            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+            <input type="hidden" name="projeto_nome" value="Java Easy">
+            <div class="avaliador-estrelas">
+                <input type="radio" name="estrelas_p4" id="s4-star5" value="5" required><label for="s4-star5">★</label>
+                <input type="radio" name="estrelas_p4" id="s4-star4" value="4"><label for="s4-star4">★</label>
+                <input type="radio" name="estrelas_p4" id="s4-star3" value="3"><label for="s4-star3">★</label>
+                <input type="radio" name="estrelas_p4" id="s4-star2" value="2"><label for="s4-star2">★</label>
+                <input type="radio" name="estrelas_p4" id="s4-star1" value="1"><label for="s4-star1">★</label>
+            </div>
+            <input type="text" id="feedback4" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
+            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
+        </form>
+    </div>
+
+    <footer class="nota-dev">
+        <strong>Nicolas Felipe</strong> &nbsp;·&nbsp; Desenvolvedor Web
+    </footer>
+
+</div>
+
+<script>
+    function ativarEnvioDeFeedback(idForm, nameEstrelas, idTexto) {
+        const form = document.getElementById(idForm);
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const botao = form.querySelector('.btn-enviar-feedback');
+            botao.innerText = 'Enviando...';
+            botao.disabled = true;
+
+            const emailDestino = form.querySelector('input[name="email_alvo"]').value;
+            const nomeDoProjeto = form.querySelector('input[name="projeto_nome"]').value;
+            const estrelaSelecionada = form.querySelector(`input[name="${nameEstrelas}"]:checked`);
+
+            if (!estrelaSelecionada) {
+                alert('Por favor, selecione uma nota em estrelas.');
+                botao.innerText = 'Enviar Avaliação';
+                botao.disabled = false;
+                return;
+            }
+
+            const dadosFormulario = {
+                _subject: `Nova Avaliação: ${nomeDoProjeto}`,
+                Projeto: nomeDoProjeto,
+                Estrelas: `${estrelaSelecionada.value} ★`,
+                Feedback: document.getElementById(idTexto).value
+            };
+
+            fetch(`https://formsubmit.co/ajax/${emailDestino}`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(dadosFormulario)
+            })
+            .then(response => response.json())
+            .then(() => {
+                alert('Muito obrigado! Sua avaliação foi enviada com sucesso.');
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Erro no envio:', error);
+                alert('Ops! Ocorreu um problema ao enviar. Tente novamente mais tarde.');
+            })
+            .finally(() => {
+                botao.innerText = 'Enviar Avaliação';
+                botao.disabled = false;
+            });
+        });
+    }
+
+    ativarEnvioDeFeedback('form-projeto1', 'estrelas_p1', 'feedback1');
+    ativarEnvioDeFeedback('form-projeto2', 'estrelas_p2', 'feedback2');
+    ativarEnvioDeFeedback('form-projeto3', 'estrelas_p3', 'feedback3');
+    ativarEnvioDeFeedback('form-projeto4', 'estrelas_p4', 'feedback4');
+</script>
+
+</body>
+</html>
