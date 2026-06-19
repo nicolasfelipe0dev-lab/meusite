@@ -56,7 +56,7 @@
 
         .container {
             width: 90%;
-            max-width: 780px;
+            max-width: 820px;
             padding: 60px 0 80px;
             display: flex;
             flex-direction: column;
@@ -65,6 +65,7 @@
             z-index: 1;
         }
 
+        /* PERFIL */
         .perfil-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -137,12 +138,13 @@
             background: rgba(124, 58, 237, 0.15);
         }
 
+        /* TÍTULO */
         .main-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 30px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             color: var(--text-primary);
             line-height: 1.25;
         }
@@ -154,17 +156,27 @@
             background-clip: text;
         }
 
+        /* GRID DE CARDS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* CARD COMPACTO */
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 32px;
-            margin-bottom: 28px;
-            width: 100%;
+            border-radius: 16px;
+            padding: 22px 20px 18px;
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .project-card::after {
@@ -177,33 +189,42 @@
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 50px rgba(124, 58, 237, 0.22);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.22);
             border-color: var(--border-hover);
         }
 
-        .project-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
+        .project-number {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: rgba(124, 58, 237, 0.08);
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
         }
 
         .project-card h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: var(--text-primary);
+            padding-right: 32px;
         }
 
-        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .project-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
 
         .tag {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 100px;
             background: var(--tag-bg);
             border: 1px solid var(--border);
@@ -212,62 +233,48 @@
             text-transform: uppercase;
         }
 
-        .project-card p {
-            font-size: 14px;
-            line-height: 1.75;
-            color: #b8aee8;
-            margin-bottom: 28px;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-            margin-bottom: 24px;
-        }
-
         .project-date {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             font-style: italic;
         }
 
         .project-btn {
-            padding: 10px 22px;
+            display: inline-block;
+            padding: 8px 16px;
             background: var(--accent);
             color: white;
             font-weight: 600;
-            font-size: 13px;
-            border-radius: 10px;
+            font-size: 12px;
+            border-radius: 8px;
             text-decoration: none;
             transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 16px var(--accent-glow);
+            box-shadow: 0 4px 14px var(--accent-glow);
             letter-spacing: 0.3px;
+            align-self: flex-start;
         }
 
         .project-btn:hover {
             background: var(--accent-light);
             transform: scale(1.04);
-            box-shadow: 0 6px 24px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
         }
 
+        /* BLOCO AVALIAÇÃO */
         .bloco-avaliacao {
             width: 100%;
             background: rgba(124, 58, 237, 0.04);
             border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 4px;
         }
 
         .bloco-avaliacao h3 {
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-secondary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 0.8px;
         }
@@ -275,8 +282,8 @@
         .avaliador-estrelas {
             display: inline-flex;
             flex-direction: row-reverse;
-            gap: 2px;
-            margin-bottom: 14px;
+            gap: 1px;
+            margin-bottom: 10px;
         }
 
         .avaliador-estrelas input[type="radio"] {
@@ -284,7 +291,7 @@
         }
 
         .avaliador-estrelas label {
-            font-size: 26px;
+            font-size: 20px;
             color: var(--star-off);
             cursor: pointer;
             transition: color 0.15s, text-shadow 0.15s, transform 0.15s;
@@ -304,16 +311,16 @@
 
         .feedback-input {
             width: 100%;
-            padding: 11px 14px;
+            padding: 8px 12px;
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 8px;
             background: rgba(8, 4, 24, 0.7);
             color: var(--text-primary);
-            font-size: 13px;
+            font-size: 12px;
             font-family: 'Inter', sans-serif;
             outline: none;
             transition: all 0.25s;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .feedback-input::placeholder { color: var(--text-muted); }
@@ -325,13 +332,13 @@
         }
 
         .btn-enviar-feedback {
-            padding: 9px 20px;
+            padding: 7px 16px;
             background: rgba(124, 58, 237, 0.2);
             color: var(--text-secondary);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 7px;
             font-family: 'Inter', sans-serif;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
@@ -344,20 +351,7 @@
             box-shadow: 0 4px 14px var(--accent-glow);
         }
 
-        .project-number {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: rgba(124, 58, 237, 0.07);
-            line-height: 1;
-            user-select: none;
-            pointer-events: none;
-        }
-
-      
+        /* FOOTER */
         .nota-dev {
             text-align: center;
             padding: 40px 20px 0;
@@ -373,19 +367,16 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
-       
-        @media (max-width: 520px) {
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
             .main-title { font-size: 24px; }
-            .card-footer { flex-direction: column; align-items: flex-start; }
-            .project-btn { width: 100%; text-align: center; }
-            .project-card { padding: 24px 20px; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-
 
     <div class="perfil-card">
         <h1>Nicolas Felipe</h1>
@@ -401,42 +392,38 @@
 
     <h1 class="main-title">Os projetos de<br><span>Nicolas Felipe</span></h1>
 
-    <div class="project-card">
-        <span class="project-number">01</span>
-        <div class="project-header">
+    <div class="projects-grid">
+
+        <!-- Projeto 01 -->
+        <div class="project-card">
+            <span class="project-number">01</span>
             <h2>Resenha do Dia a Dia</h2>
             <div class="project-tags">
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">Netlify</span>
             </div>
+            <span class="project-date">13 de maio de 2026</span>
+            <a href="https://resenha-rdd.netlify.app" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto1" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="Resenha do Dia a Dia">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p1" id="s1-star5" value="5" required><label for="s1-star5">★</label>
+                    <input type="radio" name="estrelas_p1" id="s1-star4" value="4"><label for="s1-star4">★</label>
+                    <input type="radio" name="estrelas_p1" id="s1-star3" value="3"><label for="s1-star3">★</label>
+                    <input type="radio" name="estrelas_p1" id="s1-star2" value="2"><label for="s1-star2">★</label>
+                    <input type="radio" name="estrelas_p1" id="s1-star1" value="1"><label for="s1-star1">★</label>
+                </div>
+                <input type="text" id="feedback1" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
         </div>
-        <p>
-            O Resenha do Dia a Dia (R.D.D) representa o marco inicial da jornada de Nicolas Felipe no desenvolvimento web. Criado originalmente utilizando apenas HTML e CSS, o projeto teve seu primeiro deploy na plataforma Netlify. Em seu lançamento, contava com três páginas essenciais: Página Inicial, Galeria de Fotos e Listagem de Membros. Com o aprimoramento técnico constante, o site evoluiu para 11 páginas integradas, consolidando-se como um portal robusto para a comunidade do R.D.D.
-        </p>
-        <div class="card-footer">
-            <a href="https://resenha-rdd.netlify.app" class="project-btn" target="_blank">Visitar site →</a>
-            <span class="project-date">Lançado em 13 de maio de 2026</span>
-        </div>
-        <form id="form-projeto1" class="bloco-avaliacao">
-            <h3>Deixe sua avaliação</h3>
-            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
-            <input type="hidden" name="projeto_nome" value="Resenha do Dia a Dia">
-            <div class="avaliador-estrelas">
-                <input type="radio" name="estrelas_p1" id="s1-star5" value="5" required><label for="s1-star5">★</label>
-                <input type="radio" name="estrelas_p1" id="s1-star4" value="4"><label for="s1-star4">★</label>
-                <input type="radio" name="estrelas_p1" id="s1-star3" value="3"><label for="s1-star3">★</label>
-                <input type="radio" name="estrelas_p1" id="s1-star2" value="2"><label for="s1-star2">★</label>
-                <input type="radio" name="estrelas_p1" id="s1-star1" value="1"><label for="s1-star1">★</label>
-            </div>
-            <input type="text" id="feedback1" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
-            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
-        </form>
-    </div>
 
-    <div class="project-card">
-        <span class="project-number">02</span>
-        <div class="project-header">
+        <!-- Projeto 02 -->
+        <div class="project-card">
+            <span class="project-number">02</span>
             <h2>Gerador de Senhas</h2>
             <div class="project-tags">
                 <span class="tag">HTML</span>
@@ -444,33 +431,27 @@
                 <span class="tag">Python</span>
                 <span class="tag">Render</span>
             </div>
+            <span class="project-date">22 de maio de 2026</span>
+            <a href="https://gerador-de-senhas-pf3e.onrender.com/" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto2" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="Gerador de Senhas">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p2" id="s2-star5" value="5" required><label for="s2-star5">★</label>
+                    <input type="radio" name="estrelas_p2" id="s2-star4" value="4"><label for="s2-star4">★</label>
+                    <input type="radio" name="estrelas_p2" id="s2-star3" value="3"><label for="s2-star3">★</label>
+                    <input type="radio" name="estrelas_p2" id="s2-star2" value="2"><label for="s2-star2">★</label>
+                    <input type="radio" name="estrelas_p2" id="s2-star1" value="1"><label for="s2-star1">★</label>
+                </div>
+                <input type="text" id="feedback2" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
         </div>
-        <p>
-            O Gerador de Senhas Aleatórias marca o segundo projeto de Nicolas Felipe, representando um avanço na criação de aplicações web interativas. Diferente do projeto inicial, esta ferramenta foi construída integrando HTML e CSS no front-end com Python no back-end, permitindo a geração de combinações seguras em tempo real. Desenvolvido como Single Page Application, o sistema reúne todas as funcionalidades em uma interface direta e intuitiva. A hospedagem foi realizada na plataforma Render, garantindo estabilidade no funcionamento do serviço.
-        </p>
-        <div class="card-footer">
-            <a href="https://gerador-de-senhas-pf3e.onrender.com/" class="project-btn" target="_blank">Visitar site →</a>
-            <span class="project-date">Lançado em 22 de maio de 2026</span>
-        </div>
-        <form id="form-projeto2" class="bloco-avaliacao">
-            <h3>Deixe sua avaliação</h3>
-            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
-            <input type="hidden" name="projeto_nome" value="Gerador de Senhas">
-            <div class="avaliador-estrelas">
-                <input type="radio" name="estrelas_p2" id="s2-star5" value="5" required><label for="s2-star5">★</label>
-                <input type="radio" name="estrelas_p2" id="s2-star4" value="4"><label for="s2-star4">★</label>
-                <input type="radio" name="estrelas_p2" id="s2-star3" value="3"><label for="s2-star3">★</label>
-                <input type="radio" name="estrelas_p2" id="s2-star2" value="2"><label for="s2-star2">★</label>
-                <input type="radio" name="estrelas_p2" id="s2-star1" value="1"><label for="s2-star1">★</label>
-            </div>
-            <input type="text" id="feedback2" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
-            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
-        </form>
-    </div>
 
-    <div class="project-card">
-        <span class="project-number">03</span>
-        <div class="project-header">
+        <!-- Projeto 03 -->
+        <div class="project-card">
+            <span class="project-number">03</span>
             <h2>Portugol Fácil</h2>
             <div class="project-tags">
                 <span class="tag">HTML</span>
@@ -478,33 +459,27 @@
                 <span class="tag">Interpretador</span>
                 <span class="tag">Netlify</span>
             </div>
+            <span class="project-date">9 de junho de 2026</span>
+            <a href="https://portugol-facil.netlify.app/" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto3" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="Portugol Fácil">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p3" id="s3-star5" value="5" required><label for="s3-star5">★</label>
+                    <input type="radio" name="estrelas_p3" id="s3-star4" value="4"><label for="s3-star4">★</label>
+                    <input type="radio" name="estrelas_p3" id="s3-star3" value="3"><label for="s3-star3">★</label>
+                    <input type="radio" name="estrelas_p3" id="s3-star2" value="2"><label for="s3-star2">★</label>
+                    <input type="radio" name="estrelas_p3" id="s3-star1" value="1"><label for="s3-star1">★</label>
+                </div>
+                <input type="text" id="feedback3" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
         </div>
-        <p>
-            O Portugol Fácil marca o início de uma jornada focada em simplificar o aprendizado de lógica de programação para iniciantes. A plataforma integra uma interface amigável no front-end com um interpretador robusto no back-end, permitindo a execução de códigos em Portugol em tempo real. Desenvolvido como Single Page Application, o sistema reúne editor de código e console de resultados em um ambiente limpo e direto. A hospedagem na Netlify garante excelente desempenho e rapidez no carregamento.
-        </p>
-        <div class="card-footer">
-            <a href="https://portugol-facil.netlify.app/" class="project-btn" target="_blank">Visitar site →</a>
-            <span class="project-date">Lançado em 9 de junho de 2026</span>
-        </div>
-        <form id="form-projeto3" class="bloco-avaliacao">
-            <h3>Deixe sua avaliação</h3>
-            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
-            <input type="hidden" name="projeto_nome" value="Portugol Fácil">
-            <div class="avaliador-estrelas">
-                <input type="radio" name="estrelas_p3" id="s3-star5" value="5" required><label for="s3-star5">★</label>
-                <input type="radio" name="estrelas_p3" id="s3-star4" value="4"><label for="s3-star4">★</label>
-                <input type="radio" name="estrelas_p3" id="s3-star3" value="3"><label for="s3-star3">★</label>
-                <input type="radio" name="estrelas_p3" id="s3-star2" value="2"><label for="s3-star2">★</label>
-                <input type="radio" name="estrelas_p3" id="s3-star1" value="1"><label for="s3-star1">★</label>
-            </div>
-            <input type="text" id="feedback3" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
-            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
-        </form>
-    </div>
 
-    <div class="project-card">
-        <span class="project-number">04</span>
-        <div class="project-header">
+        <!-- Projeto 04 -->
+        <div class="project-card">
+            <span class="project-number">04</span>
             <h2>Java Easy</h2>
             <div class="project-tags">
                 <span class="tag">HTML</span>
@@ -512,28 +487,79 @@
                 <span class="tag">Java</span>
                 <span class="tag">Netlify</span>
             </div>
+            <span class="project-date">11 de junho de 2026</span>
+            <a href="https://java-easy.netlify.app/" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto4" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="Java Easy">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p4" id="s4-star5" value="5" required><label for="s4-star5">★</label>
+                    <input type="radio" name="estrelas_p4" id="s4-star4" value="4"><label for="s4-star4">★</label>
+                    <input type="radio" name="estrelas_p4" id="s4-star3" value="3"><label for="s4-star3">★</label>
+                    <input type="radio" name="estrelas_p4" id="s4-star2" value="2"><label for="s4-star2">★</label>
+                    <input type="radio" name="estrelas_p4" id="s4-star1" value="1"><label for="s4-star1">★</label>
+                </div>
+                <input type="text" id="feedback4" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
         </div>
-        <p>
-            O Java Easy é uma plataforma educacional interativa criada para tornar o aprendizado de Java acessível a qualquer pessoa, independentemente do nível de experiência. Com uma abordagem prática e direta, o site apresenta conceitos fundamentais da linguagem — como variáveis, estruturas de controle, orientação a objetos e muito mais — de forma clara e progressiva. Desenvolvido como Single Page Application com uma interface moderna e responsiva, o Java Easy foi projetado para ser o ponto de partida ideal de quem deseja dar os primeiros passos no desenvolvimento com Java. A plataforma é hospedada na Netlify, garantindo carregamento rápido e disponibilidade constante.
-        </p>
-        <div class="card-footer">
-            <a href="https://java-easy.netlify.app/" class="project-btn" target="_blank">Visitar site →</a>
-            <span class="project-date">Lançado em 11 de junho de 2026</span>
-        </div>
-        <form id="form-projeto4" class="bloco-avaliacao">
-            <h3>Deixe sua avaliação</h3>
-            <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
-            <input type="hidden" name="projeto_nome" value="Java Easy">
-            <div class="avaliador-estrelas">
-                <input type="radio" name="estrelas_p4" id="s4-star5" value="5" required><label for="s4-star5">★</label>
-                <input type="radio" name="estrelas_p4" id="s4-star4" value="4"><label for="s4-star4">★</label>
-                <input type="radio" name="estrelas_p4" id="s4-star3" value="3"><label for="s4-star3">★</label>
-                <input type="radio" name="estrelas_p4" id="s4-star2" value="2"><label for="s4-star2">★</label>
-                <input type="radio" name="estrelas_p4" id="s4-star1" value="1"><label for="s4-star1">★</label>
+
+        <!-- Projeto 05 -->
+        <div class="project-card">
+            <span class="project-number">05</span>
+            <h2>Python Easy</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Python</span>
+                <span class="tag">Netlify</span>
             </div>
-            <input type="text" id="feedback4" class="feedback-input" placeholder="Deixe seu feedback aqui..." required>
-            <button type="submit" class="btn-enviar-feedback">Enviar Avaliação</button>
-        </form>
+            <span class="project-date">17 de junho de 2026</span>
+            <a href="https://python-easy.netlify.app/" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto5" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="Python Easy">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p5" id="s5-star5" value="5" required><label for="s5-star5">★</label>
+                    <input type="radio" name="estrelas_p5" id="s5-star4" value="4"><label for="s5-star4">★</label>
+                    <input type="radio" name="estrelas_p5" id="s5-star3" value="3"><label for="s5-star3">★</label>
+                    <input type="radio" name="estrelas_p5" id="s5-star2" value="2"><label for="s5-star2">★</label>
+                    <input type="radio" name="estrelas_p5" id="s5-star1" value="1"><label for="s5-star1">★</label>
+                </div>
+                <input type="text" id="feedback5" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
+        </div>
+
+        <!-- Projeto 06 -->
+        <div class="project-card">
+            <span class="project-number">06</span>
+            <h2>ONG Cidadania Jovem</h2>
+            <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">Netlify</span>
+            </div>
+            <span class="project-date">7 de junho de 2026</span>
+            <a href="https://ong-cidadania-jovem.netlify.app/" class="project-btn" target="_blank">Visitar →</a>
+            <form id="form-projeto6" class="bloco-avaliacao">
+                <h3>Avalie este projeto</h3>
+                <input type="hidden" name="email_alvo" value="nicolasfelipe0dev@gmail.com">
+                <input type="hidden" name="projeto_nome" value="ONG Cidadania Jovem">
+                <div class="avaliador-estrelas">
+                    <input type="radio" name="estrelas_p6" id="s6-star5" value="5" required><label for="s6-star5">★</label>
+                    <input type="radio" name="estrelas_p6" id="s6-star4" value="4"><label for="s6-star4">★</label>
+                    <input type="radio" name="estrelas_p6" id="s6-star3" value="3"><label for="s6-star3">★</label>
+                    <input type="radio" name="estrelas_p6" id="s6-star2" value="2"><label for="s6-star2">★</label>
+                    <input type="radio" name="estrelas_p6" id="s6-star1" value="1"><label for="s6-star1">★</label>
+                </div>
+                <input type="text" id="feedback6" class="feedback-input" placeholder="Seu feedback..." required>
+                <button type="submit" class="btn-enviar-feedback">Enviar</button>
+            </form>
+        </div>
+
     </div>
 
     <footer class="nota-dev">
@@ -560,7 +586,7 @@
 
             if (!estrelaSelecionada) {
                 alert('Por favor, selecione uma nota em estrelas.');
-                botao.innerText = 'Enviar Avaliação';
+                botao.innerText = 'Enviar';
                 botao.disabled = false;
                 return;
             }
@@ -590,7 +616,7 @@
                 alert('Ops! Ocorreu um problema ao enviar. Tente novamente mais tarde.');
             })
             .finally(() => {
-                botao.innerText = 'Enviar Avaliação';
+                botao.innerText = 'Enviar';
                 botao.disabled = false;
             });
         });
@@ -600,6 +626,8 @@
     ativarEnvioDeFeedback('form-projeto2', 'estrelas_p2', 'feedback2');
     ativarEnvioDeFeedback('form-projeto3', 'estrelas_p3', 'feedback3');
     ativarEnvioDeFeedback('form-projeto4', 'estrelas_p4', 'feedback4');
+    ativarEnvioDeFeedback('form-projeto5', 'estrelas_p5', 'feedback5');
+    ativarEnvioDeFeedback('form-projeto6', 'estrelas_p6', 'feedback6');
 </script>
 
 </body>
